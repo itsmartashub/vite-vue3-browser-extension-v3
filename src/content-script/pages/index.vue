@@ -7,12 +7,26 @@ function handleClick() {
 
 <template>
   <div>
-    <h1 class="text-red-800 font-bold text-xl">Content Script</h1>
+    <h1 class="text-blue-600 font-bold text-xl">Content Script Body</h1>
     <button
       class="btn btn-primary"
       @click="handleClick"
     >
-      Sample Daisy UI Button
+      Primary Daisy UI Button
+    </button>
+
+    <button
+      class="btn btn-secondary"
+      @click="handleClick"
+    >
+      Secondary Daisy UI Button
+    </button>
+
+    <button
+      class="btn"
+      @click="handleClick"
+    >
+      Red Daisy UI Button
     </button>
   </div>
 </template>

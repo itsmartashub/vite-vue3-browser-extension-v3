@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router/auto'
+// import daisyUi from 'daisyui/dist/full.css?inline'
 import packageJson from '../../package.json'
 import App from './app.vue'
+import styles from './index.scss?inline'
 import routes from '~pages'
-import '../assets/base.scss'
-import './index.scss'
 
-const { version, name } = packageJson
+const { name } = packageJson
 
 routes.push({
   path: '/',
@@ -28,8 +28,28 @@ self.onerror = function (message, source, lineno, colno, error) {
   )
 }
 
-// mount app using shadow dom
-const shadowRoot = document.createElement('div')
-shadowRoot.id = `${name}-${version}-shadow-root`
-document.body.appendChild(shadowRoot)
-app.mount(shadowRoot)
+// Mount app using Shadow DOM
+const extensionRoot = document.createElement('div')
+extensionRoot.id = `${name}-extension-container`
+
+// Append to DOM before creating Shadow DOM
+document.body.appendChild(extensionRoot)
+
+// Attach Shadow DOM
+const shadowRoot =
+  extensionRoot.shadowRoot || extensionRoot.attachShadow({ mode: 'open' })
+
+// Create app root inside Shadow DOM
+const appRoot = document.createElement('div')
+extensionRoot.id = `${name}-extension-root`
+shadowRoot.appendChild(appRoot)
+
+// Create a style element and set css content
+const styleElement = document.createElement('style')
+styleElement.setAttribute('rel', 'stylesheet')
+styleElement.textContent = styles
+
+shadowRoot.appendChild(styleElement)
+
+// Mount Vue app
+app.mount(appRoot)

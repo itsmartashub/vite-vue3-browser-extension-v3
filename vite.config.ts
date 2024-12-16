@@ -31,6 +31,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         api: 'modern',
+        additionalData: `@use "/src/assets/base.scss";`,
       },
     },
   },
@@ -113,7 +114,6 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        'content-script': 'src/content-script/index.html',
         popup: 'src/popup/index.html',
         setup: 'src/setup/index.html',
         options: 'src/options/index.html',

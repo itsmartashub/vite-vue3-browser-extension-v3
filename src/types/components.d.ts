@@ -10,7 +10,6 @@ declare module 'vue' {
     Changelog: typeof import('./../components/Changelog.vue')['default']
     IFaSolidDiceFive: typeof import('~icons/fa-solid/dice-five')['default']
     'IHeroiconsOutline:menuAlt2': typeof import('~icons/heroicons-outline/menu-alt2')['default']
-    IHeroiconsOutlineMenuAlt2: typeof import('~icons/heroicons-outline/menu-alt2')['default']
     Install: typeof import('./../components/install.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
