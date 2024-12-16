@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router/auto'
-// import daisyUi from 'daisyui/dist/full.css?inline'
 import packageJson from '../../package.json'
 import App from './app.vue'
 import styles from './index.scss?inline'
@@ -46,7 +45,6 @@ shadowRoot.appendChild(appRoot)
 
 // Create a style element and set css content
 const styleElement = document.createElement('style')
-styleElement.setAttribute('rel', 'stylesheet')
 styleElement.textContent = styles
 
 shadowRoot.appendChild(styleElement)
